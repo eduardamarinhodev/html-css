@@ -1,0 +1,44 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* Tudo oq em HTML é ID = Em CSS é # 
+    Em HTML é class = Em CSS é .  
+*/
+body {
+    background-color: #98b0c4;
+    font-family: "Montserrat", sans-serif;
+    color: #ffffff;
+    margin: 20px;
+}
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+h1#principal {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 3em;
+}
+h2 {
+    color: #333d4d;
+    margin-top: 20px;
+}
+p {
+    font-size: 1.2em;
+    line-height: normal;
+    margin-bottom: 30px;
+    text-indent: 30px;
+}
+.basico {
+    color: #741958;
+    font-weight: bolder;
+}
+.intermediario {
+    color: #501226;
+}
+.avançado {
+    color: #d64796;
+}
+.destaque {
+    color: #e74c3c;
+    font-weight: bold;
+}

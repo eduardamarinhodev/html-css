@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo elementos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        a:hover {
+            color: black;
+            text-decoration: underline;
+        }
+        a:active {
+            color: yellow;
+        }
+        a::before {
+            content: "🔗 ";
+            font-size: 1.2em;
+        }
+        a::after {
+            font-size: 0.8em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <h1>Personalizando Links</h1>
+    <ul>
+        <li><a href="https://github.com" target="_blank">Repositório GitHub</a></li>
+        <li><a href="https://youtube.com" target="_blank" class="especial">Canal do Youtube</a></li>
+        <li><a href="https://linkedin.com" target="_blank">Perfil no LinkedIn</a></li>
+    </ul>
+</body>
+</html>

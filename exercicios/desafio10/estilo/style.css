@@ -1,0 +1,194 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+    font-family: idroid;
+    src: url(fonte/idroid.otf);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --cor-primaria: #98f5c8;
+    --cor-secundaria: #67AA89;
+    --cor-fundo: #46FFA7;
+    --cor-textoprin: #49554F;
+    --cor-texto: #ffffff;
+    --cor-escuro: #24332C;
+    --gradiente: linear-gradient(to bottom, #52856b, #3b8561, #136940);
+
+    --fonte-principal: 'Montserrat', verdana sans-serif;
+    --fonte-secundaria: .bebas-neue-regular, sans-serif;
+    --fonte-titulo: idroid, sans-serif;
+
+}
+
+
+
+header {
+    display: block;
+    background: var(--gradiente);
+    color: #fff;
+    font-family: var(--fonte-principal);
+    padding: 1em;
+    text-align: center;
+}
+    header h1 {
+        font-family: var(--fonte-titulo);
+        font-size: 2.5em;
+        margin: 20px 10px 20px 10px;
+    }
+    header p {
+        font-size: 1em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+
+nav {
+    display: block;
+    text-align: center;
+    background-color: #4b9e76;
+    padding: 0.5em;
+    text-align: center;
+    a {
+        color: #ffffffda;
+        text-decoration: none;
+        margin: 0 0.5em;
+        font-family: var(--fonte-principal);
+        font-weight: 400;
+        transition-duration: 0.5s;
+    }
+    a:hover {
+        background-color: var(--cor-primaria);
+        padding: 0.5em;
+        color: var(--cor-escuro);
+        border-radius: 5px;
+    }
+}
+body { background-color: var(--cor-primaria)
+    font-family: var(--fonte-principal);}
+
+a.externo::after {
+    content: '🔗'
+}
+
+main {
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.445);
+    padding: 20px;
+    margin: auto;
+    min-width: 300px;
+    max-width: 1000px;
+}
+main h1 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-escuro);
+    text-align: center;
+    padding-bottom: 1em;
+}
+
+main h2 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-textoprin);
+    margin-top: 1.5em;
+    padding-bottom: 0.5em;
+}
+main h3 {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+    margin-left: 30px;
+    padding: 10px;
+    margin: -10px -10px 0px -10px;
+    border-radius: 10px 10px 0 0;
+    padding-bottom: 0.5em;
+}
+main img {
+    display: block;
+    margin: 1em auto;
+    max-width: 100%;
+    height: auto;
+}
+main p {
+    font-family: var(--fonte-principal);
+    color: var(--cor-escuro);
+    line-height: 1.6;
+    padding-bottom: none;
+    margin-bottom: 0.5em;
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 1.5;
+}
+main ul {
+    list-style-type: '✅ ';
+    list-style-position: inside;
+    column-count: 2;
+    margin: auto;
+    margin-left: 2em;
+    margin: 1em;
+    padding-left: 0.5em;
+    color: var(--cor-textoprin);
+}
+main ul li {
+    margin-bottom: 0.5em;
+    font-family: var(--fonte-principal);
+}
+main a {
+    color: #4b9e76;
+    text-decoration: none;
+    font-weight: bold;
+}
+main a:hover {
+    text-decoration: underline;
+}
+
+div.video {
+    background-color: var(--cor-primaria);
+    margin: 0 -20px 30px -20px;
+    padding: 20px;
+    padding-bottom: 56.25%; /* 16:9 */
+    position: relative;
+    
+}
+
+div.video > iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+aside {
+    background-color: var(--cor-primaria);
+    color: #fff;
+    text-color: #fff;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.219);
+    padding: 10px;
+    margin-bottom: 1em;
+    border-radius: 10px;
+    font-family: var(--fonte-principal);
+}
+aside a {
+    color: rgb(8, 88, 28);
+    text-decoration: none;
+    font-weight: bold;
+}
+aside p {
+    margin: 0.5em;
+}
+footer {
+    display: block;
+    background-color: var(--cor-secundaria);
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    font-family: var(--fonte-principal);
+}
