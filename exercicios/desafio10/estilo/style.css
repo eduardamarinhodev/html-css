@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: idroid;
-    src: url(fonte/idroid.otf);
+    src: url(fontes/idroid.otf);
 }
 * {
     margin: 0;
@@ -23,8 +23,8 @@
     --gradiente: linear-gradient(to bottom, #52856b, #3b8561, #136940);
 
     --fonte-principal: 'Montserrat', verdana sans-serif;
-    --fonte-secundaria: .bebas-neue-regular, sans-serif;
-    --fonte-titulo: idroid, sans-serif;
+    --fonte-secundaria: 'Bebas Neue', sans-serif;
+    --fonte-titulo: 'idroid', sans-serif;
 
 }
 
