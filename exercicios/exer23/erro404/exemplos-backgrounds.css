@@ -1,0 +1,296 @@
+/* ========================================
+   EXEMPLOS PRÁTICOS DE BACKGROUNDS COM IMAGENS
+   ======================================== */
+
+/* 
+   ESTE ARQUIVO MOSTRA EXEMPLOS REAIS DE COMO USAR IMAGENS
+   COMO BACKGROUNDS EM SUAS PÁGINAS.
+   
+   Descomente os exemplos que quiser testar!
+*/
+
+/* ========================================
+   EXEMPLO 1: Background simples com uma imagem
+   ======================================== */
+/*
+.exemplo-1 {
+    width: 300px;
+    height: 300px;
+    
+    /* Caminho para a imagem */
+    background-image: url('imagens/sua-imagem.png');
+    
+    /* Tamanho da imagem */
+    background-size: cover;  /* Cobre completamente o elemento */
+    
+    /* Posição da imagem */
+    background-position: center;
+    
+    /* Não repete */
+    background-repeat: no-repeat;
+    
+    /* Cor de fallback se a imagem não carregar */
+    background-color: #667eea;
+}
+*/
+
+/* ========================================
+   EXEMPLO 2: Background-size - Diferentes opções
+   ======================================== */
+/*
+/* OPÇÃO A: cover - A imagem cobre completamente o elemento */
+.background-cover {
+    background-image: url('imagens/foto.jpg');
+    background-size: cover;      /* Cobre tudo, pode cortar partes */
+    background-position: center;
+}
+
+/* OPÇÃO B: contain - A imagem inteira é visível */
+.background-contain {
+    background-image: url('imagens/foto.jpg');
+    background-size: contain;    /* Mostra tudo, pode deixar espaços */
+    background-position: center;
+}
+
+/* OPÇÃO C: Tamanho percentual */
+.background-percent {
+    background-image: url('imagens/foto.jpg');
+    background-size: 50% 50%;    /* Metade da largura e altura */
+}
+
+/* OPÇÃO D: Tamanho específico em pixels */
+.background-pixels {
+    background-image: url('imagens/foto.jpg');
+    background-size: 200px 150px;  /* 200px de largura, 150px de altura */
+}
+
+/* OPÇÃO E: Auto (mantém proporção original) */
+.background-auto {
+    background-image: url('imagens/foto.jpg');
+    background-size: auto;      /* Tamanho original da imagem */
+}
+*/
+
+/* ========================================
+   EXEMPLO 3: Background-position - Posicionamentos
+   ======================================== */
+/*
+/* Topo-esquerdo */
+.posicao-top-left {
+    background-image: url('imagens/padroes.png');
+    background-position: top left;
+}
+
+/* Centralizado (padrão recomendado) */
+.posicao-center {
+    background-image: url('imagens/padroes.png');
+    background-position: center;
+}
+
+/* Abaixo à direita */
+.posicao-bottom-right {
+    background-image: url('imagens/padroes.png');
+    background-position: bottom right;
+}
+
+/* Usando percentuais (50% 50% = centro) */
+.posicao-percent {
+    background-image: url('imagens/padroes.png');
+    background-position: 50% 50%;
+}
+
+/* Usando pixels (offset a partir do topo-esquerdo) */
+.posicao-pixels {
+    background-image: url('imagens/padroes.png');
+    background-position: 20px 30px;
+}
+
+/* Combinação de unidades */
+.posicao-mista {
+    background-image: url('imagens/padroes.png');
+    background-position: center 50px;  /* Centrado horizontalmente, 50px do topo */
+}
+*/
+
+/* ========================================
+   EXEMPLO 4: Background-repeat - Repetições
+   ======================================== */
+/*
+/* NÃO repete */
+.repeat-none {
+    background-image: url('imagens/padroes.png');
+    background-repeat: no-repeat;
+}
+
+/* Repete horizontalmente (em X) */
+.repeat-x {
+    background-image: url('imagens/linha.png');
+    background-repeat: repeat-x;
+}
+
+/* Repete verticalmente (em Y) */
+.repeat-y {
+    background-image: url('imagens/linha.png');
+    background-repeat: repeat-y;
+}
+
+/* Repete nos dois sentidos (padrão) */
+.repeat-both {
+    background-image: url('imagens/padroes.png');
+    background-repeat: repeat;
+}
+
+/* Space: repete com espaços iguais */
+.repeat-space {
+    background-image: url('imagens/icone.png');
+    background-repeat: space;
+    height: 300px;
+}
+
+/* Round: repete ajustando o tamanho */
+.repeat-round {
+    background-image: url('imagens/icone.png');
+    background-repeat: round;
+    height: 300px;
+}
+*/
+
+/* ========================================
+   EXEMPLO 5: Múltiplas camadas de background
+   ======================================== */
+/*
+.multiplas-camadas {
+    width: 100%;
+    height: 500px;
+    
+    background-image: 
+        url('imagens/foreground.png'),      /* 1ª camada (mais visível) */
+        url('imagens/middleground.png'),    /* 2ª camada */
+        url('imagens/background.png');      /* 3ª camada (atrás) */
+    
+    background-size:
+        100% 100%,
+        150% 150%,
+        200% 200%;
+    
+    background-position:
+        center,
+        bottom right,
+        top left;
+    
+    background-repeat:
+        no-repeat,
+        no-repeat,
+        repeat;
+}
+*/
+
+/* ========================================
+   EXEMPLO 6: Background com gradiente + imagem
+   ======================================== */
+/*
+.gradiente-e-imagem {
+    background-image:
+        /* Gradiente com transparência para ver a imagem */
+        linear-gradient(90deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+        /* Imagem de fundo */
+        url('imagens/foto-fundo.jpg');
+    
+    background-size: 100% 100%, cover;
+    background-position: center, center;
+    background-repeat: no-repeat, no-repeat;
+    
+    height: 300px;
+}
+*/
+
+/* ========================================
+   EXEMPLO 7: Background-attachment - Parallax
+   ======================================== */
+/*
+/* O background NÃO rola com a página (fixed) */
+.parallax-fixed {
+    background-image: url('imagens/paisagem.jpg');
+    background-attachment: fixed;  /* Efeito parallax! */
+    background-size: cover;
+    height: 300px;
+}
+
+/* O background rola normalmente (padrão) */
+.parallax-scroll {
+    background-image: url('imagens/paisagem.jpg');
+    background-attachment: scroll;  /* Rola com a página */
+    background-size: cover;
+    height: 300px;
+}
+
+/* Rola apenas localmente dentro do elemento */
+.parallax-local {
+    background-image: url('imagens/paisagem.jpg');
+    background-attachment: local;
+    background-size: cover;
+    height: 300px;
+    overflow: auto;
+}
+*/
+
+/* ========================================
+   EXEMPLO 8: Background shorthand (resumido)
+   ======================================== */
+/*
+/* Em vez de escrever tudo separado, você pode usar: */
+.shorthand {
+    background: 
+        url('imagens/padroes.png') 
+        center / 50% 50% 
+        no-repeat 
+        fixed;
+    
+    /* É equivalente a:
+    background-image: url('imagens/padroes.png');
+    background-position: center;
+    background-size: 50% 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    */
+}
+*/
+
+/* ========================================
+   DICAS IMPORTANTES
+   ======================================== */
+/*
+
+1. CAMINHOS DAS IMAGENS:
+   - URL relativo (pasta do CSS):
+     background-image: url('../imagens/foto.jpg');
+   - URL absoluto (desde a raiz do projeto):
+     background-image: url('/imagens/foto.jpg');
+   - URL externo:
+     background-image: url('https://example.com/imagem.jpg');
+
+2. FORMATOS DE IMAGEM RECOMENDADOS:
+   - JPG/JPEG: Fotos (melhor compressão)
+   - PNG: Transparências, padrões, ícones
+   - SVG: Ícones e padrões vetoriais (escalável)
+   - WebP: Formato moderno (melhor qualidade/tamanho)
+
+3. BACKGROUND-COLOR (cor de fallback):
+   Sempre defina uma cor de fundo em caso de erro:
+   background-color: #667eea;
+
+4. PERFORMANCE:
+   - Use imagens otimizadas (comprimidas)
+   - Prefer SVG para padrões simples
+   - Considere lazy-loading para backgrounds grandes
+
+5. ACESSIBILIDADE:
+   - Se o background tiver conteúdo importante, use <img> no HTML
+   - Use background apenas para elementos decorativos
+
+6. COMBINAR BACKGROUND COM OUTRAS PROPRIEDADES:
+   - border-radius: arredondar cantos
+   - box-shadow: sombras
+   - filter: efeitos visuais (blur, brightness, etc)
+
+*/

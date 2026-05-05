@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testador de Background Properties</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f5f5;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+        font-size: 32px;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .painel-controle {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .painel-preview {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+
+      .preview-area {
+        width: 100%;
+        height: 400px;
+        border: 3px dashed #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #999;
+        font-size: 18px;
+        background-color: #fafafa;
+      }
+
+      .controle-grupo {
+        margin-bottom: 25px;
+      }
+
+      .controle-grupo label {
+        display: block;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: #333;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .controle-grupo input[type="text"],
+      .controle-grupo select {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+        font-family: "Courier New", monospace;
+        transition: border-color 0.3s;
+      }
+
+      .controle-grupo input[type="text"]:focus,
+      .controle-grupo select:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .botao {
+        width: 100%;
+        padding: 12px;
+        background: #667eea;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.3s;
+        margin-bottom: 10px;
+      }
+
+      .botao:hover {
+        background: #5568d3;
+      }
+
+      .botao-resetar {
+        background: #999;
+      }
+
+      .botao-resetar:hover {
+        background: #777;
+      }
+
+      .codigo-gerado {
+        background: #f8f8f8;
+        padding: 15px;
+        border-radius: 5px;
+        margin-top: 20px;
+        border: 1px solid #e0e0e0;
+      }
+
+      .codigo-gerado label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 700;
+        color: #333;
+      }
+
+      .codigo-gerado textarea {
+        width: 100%;
+        height: 120px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-family: "Courier New", monospace;
+        font-size: 13px;
+        resize: vertical;
+        background: white;
+      }
+
+      .info-box {
+        background: #e3f2fd;
+        border-left: 4px solid #667eea;
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .info-box strong {
+        display: block;
+        margin-bottom: 5px;
+        color: #667eea;
+      }
+
+      @media (max-width: 768px) {
+        .row {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎨 Testador Interativo de Background Properties</h1>
+
+      <div class="info-box">
+        <strong>Como usar:</strong>
+        Insira ou selecione valores nos campos abaixo. O preview area à direita
+        mostrará o resultado em tempo real!
+      </div>
+
+      <div class="row">
+        <!-- PAINEL DE CONTROLE -->
+        <div class="painel-controle">
+          <h2 style="margin-bottom: 20px; font-size: 20px; color: #333">
+            ⚙️ Controles
+          </h2>
+
+          <!-- Background Image URL -->
+          <div class="controle-grupo">
+            <label>📷 Background Image URL</label>
+            <input
+              type="text"
+              id="bgImage"
+              placeholder="Ex: https://images.unsplash.com/photo-123"
+              value="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect fill='%23667eea' width='200' height='200'/%3E%3Ccircle cx='100' cy='100' r='50' fill='%23764ba2'/%3E%3C/svg%3E"
+            />
+          </div>
+
+          <!-- Background Size -->
+          <div class="controle-grupo">
+            <label>📐 Background Size</label>
+            <select id="bgSize">
+              <option value="cover">cover - Cobre completamente</option>
+              <option value="contain">contain - Cabe inteiro dentro</option>
+              <option value="100% 100%">100% 100% - Estica totalmente</option>
+              <option value="50% 50%">50% 50% - Metade do tamanho</option>
+              <option value="200px 150px">
+                200px 150px - Tamanho específico
+              </option>
+              <option value="auto">auto - Tamanho original</option>
+            </select>
+          </div>
+
+          <!-- Background Position -->
+          <div class="controle-grupo">
+            <label>📍 Background Position</label>
+            <select id="bgPosition">
+              <option value="center">center - Centralizado</option>
+              <option value="top left">top left - Topo-esquerdo</option>
+              <option value="top right">top right - Topo-direito</option>
+              <option value="bottom left">bottom left - Abaixo-esquerdo</option>
+              <option value="bottom right">
+                bottom right - Abaixo-direito
+              </option>
+              <option value="50% 50%">50% 50% - Percentual</option>
+              <option value="0 0">0 0 - Pixel absoluto</option>
+            </select>
+          </div>
+
+          <!-- Background Repeat -->
+          <div class="controle-grupo">
+            <label>🔄 Background Repeat</label>
+            <select id="bgRepeat">
+              <option value="no-repeat">no-repeat - Sem repetição</option>
+              <option value="repeat">repeat - Repete em ambas direções</option>
+              <option value="repeat-x">
+                repeat-x - Repete horizontalmente
+              </option>
+              <option value="repeat-y">repeat-y - Repete verticalmente</option>
+              <option value="space">space - Com espaços iguais</option>
+              <option value="round">round - Ajusta tamanho</option>
+            </select>
+          </div>
+
+          <!-- Background Attachment -->
+          <div class="controle-grupo">
+            <label>📌 Background Attachment</label>
+            <select id="bgAttachment">
+              <option value="scroll">scroll - Rola normalmente</option>
+              <option value="fixed">fixed - Fica fixo (parallax)</option>
+              <option value="local">local - Rola dentro do elemento</option>
+            </select>
+          </div>
+
+          <!-- Background Color -->
+          <div class="controle-grupo">
+            <label>🎨 Background Color (Fallback)</label>
+            <input
+              type="text"
+              id="bgColor"
+              placeholder="Ex: #667eea ou rgba(102, 126, 234, 0.5)"
+              value="#f0f0f0"
+            />
+          </div>
+
+          <!-- Botões -->
+          <button class="botao" onclick="atualizarPreview()">
+            ✨ Aplicar Alterações
+          </button>
+          <button class="botao botao-resetar" onclick="resetar()">
+            🔄 Resetar
+          </button>
+
+          <!-- Código Gerado -->
+          <div class="codigo-gerado">
+            <label>📝 CSS Gerado</label>
+            <textarea id="codigoSaida" readonly></textarea>
+          </div>
+        </div>
+
+        <!-- PAINEL DE PREVIEW -->
+        <div class="painel-preview">
+          <div class="preview-area" id="previewArea">Área de Preview</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Função para atualizar o preview
+      function atualizarPreview() {
+        const bgImage = document.getElementById("bgImage").value;
+        const bgSize = document.getElementById("bgSize").value;
+        const bgPosition = document.getElementById("bgPosition").value;
+        const bgRepeat = document.getElementById("bgRepeat").value;
+        const bgAttachment = document.getElementById("bgAttachment").value;
+        const bgColor = document.getElementById("bgColor").value;
+
+        const preview = document.getElementById("previewArea");
+
+        // Aplicar estilos
+        if (bgImage) {
+          preview.style.backgroundImage = `url('${bgImage}')`;
+        }
+        preview.style.backgroundSize = bgSize;
+        preview.style.backgroundPosition = bgPosition;
+        preview.style.backgroundRepeat = bgRepeat;
+        preview.style.backgroundAttachment = bgAttachment;
+        preview.style.backgroundColor = bgColor;
+
+        // Gerar código CSS
+        const codigoCSS = `
+.meu-elemento {
+    background-image: url('${bgImage}');
+    background-size: ${bgSize};
+    background-position: ${bgPosition};
+    background-repeat: ${bgRepeat};
+    background-attachment: ${bgAttachment};
+    background-color: ${bgColor};
+}
+
+/* Ou usar shorthand: */
+.meu-elemento {
+    background: 
+        url('${bgImage}') 
+        ${bgPosition} / ${bgSize} 
+        ${bgRepeat} 
+        ${bgAttachment}
+        ${bgColor};
+}
+            `.trim();
+
+        document.getElementById("codigoSaida").value = codigoCSS;
+      }
+
+      // Função para resetar
+      function resetar() {
+        document.getElementById("bgImage").value =
+          "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect fill='%23667eea' width='200' height='200'/%3E%3Ccircle cx='100' cy='100' r='50' fill='%23764ba2'/%3E%3C/svg%3E";
+        document.getElementById("bgSize").value = "cover";
+        document.getElementById("bgPosition").value = "center";
+        document.getElementById("bgRepeat").value = "no-repeat";
+        document.getElementById("bgAttachment").value = "scroll";
+        document.getElementById("bgColor").value = "#f0f0f0";
+
+        atualizarPreview();
+      }
+
+      // Inicializar ao carregar a página
+      window.addEventListener("load", () => {
+        atualizarPreview();
+      });
+
+      // Atualizar preview ao mudar valores
+      document
+        .getElementById("bgSize")
+        .addEventListener("change", atualizarPreview);
+      document
+        .getElementById("bgPosition")
+        .addEventListener("change", atualizarPreview);
+      document
+        .getElementById("bgRepeat")
+        .addEventListener("change", atualizarPreview);
+      document
+        .getElementById("bgAttachment")
+        .addEventListener("change", atualizarPreview);
+      document
+        .getElementById("bgColor")
+        .addEventListener("change", atualizarPreview);
+      document
+        .getElementById("bgImage")
+        .addEventListener("change", atualizarPreview);
+    </script>
+  </body>
+</html>

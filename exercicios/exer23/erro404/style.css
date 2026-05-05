@@ -1,0 +1,374 @@
+/* ========================================
+   PÁGINA 404 - APRENDENDO BACKGROUNDS
+   ======================================== */
+
+/* Resetando estilos padrão do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========================================
+   BACKGROUND PRINCIPAL DO BODY
+   ======================================== */
+body {
+    /* Altura mínima para ocupar toda a tela */
+    min-height: 100vh;
+    
+    /* Font padrão para toda a página */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ========================================
+   CONTAINER COM BACKGROUND PRINCIPAL
+   ======================================== */
+.background-principal {
+    /* Ocupar 100% da altura da viewport */
+    min-height: 100vh;
+    
+    /* Posição relativa para posicionar elementos filhos com absolute */
+    position: relative;
+    
+    /* Overflow hidden para não mostrar elementos fora do container */
+    overflow: hidden;
+    
+    /* ---- BACKGROUND COM MÚLTIPLAS CAMADAS ---- */
+    
+    /* Camada 1: Gradiente de fundo (cores principais) */
+    background: 
+        /* Camada 1 - Gradiente principal (diagonal) */
+        linear-gradient(135deg, #667eea 0%, #764ba2 100%),
+        /* Camada 2 - Padrão com repeating-linear-gradient (linhas diagonais) */
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 10px,
+            rgba(255, 255, 255, 0.05) 10px,
+            rgba(255, 255, 255, 0.05) 20px
+        );
+    
+    /* ---- PROPRIEDADES DE BACKGROUND ---- */
+    
+    /* background-size: controla o tamanho das imagens de fundo
+       - 100% 100%: a primeira camada ocupa 100% da largura e altura
+       - 100% 100%: a segunda camada também ocupa 100%
+    */
+    background-size: 100% 100%, 100% 100%;
+    
+    /* background-position: Define onde a imagem começa
+       - center: centraliza a primeira camada
+       - top left: a segunda camada começa no topo-esquerdo (padrão)
+    */
+    background-position: center, top left;
+    
+    /* background-repeat: Define como a imagem se repete
+       - no-repeat: primeira camada não repete
+       - repeat: segunda camada se repete (padrão para padrões)
+    */
+    background-repeat: no-repeat, repeat;
+    
+    /* background-attachment: Define se o background rola com a página
+       - fixed: mantém o background fixo (efeito parallax)
+    */
+    background-attachment: fixed, fixed;
+}
+
+/* ========================================
+   FORMAS DECORATIVAS GEOMÉTRICAS
+   ======================================== */
+.forma-decorativa {
+    /* Posição absoluta para colocar em cantos específicos */
+    position: absolute;
+    
+    /* Usar pointer-events: none para não interferir com cliques */
+    pointer-events: none;
+    
+    /* Opacidade reduzida para não sobrecarregar visualmente */
+    opacity: 0.8;
+}
+
+/* Forma 1: Canto superior esquerdo */
+.forma-1 {
+    /* Posicionamento */
+    top: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    
+    /* Border-radius para criar círculo (50%) ou formas arredondadas */
+    border-radius: 50%;
+    
+    /* BACKGROUND COM IMAGEM/PADRÃO
+       - Se você tiver uma imagem, use: url('imagens/forma.png')
+       - Aqui usamos um gradiente radial como alternativa
+    */
+    background: 
+        radial-gradient(circle, rgba(255, 100, 150, 0.3) 0%, transparent 70%);
+    
+    /* background-size: amplia o padrão (não necessário para gradiente, mas mostro para referência) */
+    background-size: 200% 200%;
+}
+
+/* Forma 2: Canto inferior direito */
+.forma-2 {
+    /* Posicionamento no canto oposto */
+    bottom: -150px;
+    right: -150px;
+    width: 400px;
+    height: 400px;
+    
+    /* Quadrado arredondado */
+    border-radius: 30%;
+    
+    /* Background com gradiente diferente */
+    background: 
+        radial-gradient(circle, rgba(100, 200, 255, 0.3) 0%, transparent 70%);
+    
+    background-size: 200% 200%;
+}
+
+/* ========================================
+   PADRÕES DECORATIVOS (Pequenos círculos) 
+   ======================================== */
+.padrao-decorativo {
+    /* Posição absoluta para posicionar livremente */
+    position: absolute;
+    
+    /* Não interferir com eventos de mouse */
+    pointer-events: none;
+    
+    /* Opacidade baixa para efeito sutil */
+    opacity: 0.6;
+    
+    /* Criar círculo com border-radius */
+    border-radius: 50%;
+    
+    /* Background sólido com transparência */
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Posições específicas dos padrões */
+.padrao-1 {
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    right: 10%;
+}
+
+.padrao-2 {
+    width: 60px;
+    height: 60px;
+    bottom: 25%;
+    left: 5%;
+}
+
+.padrao-3 {
+    width: 100px;
+    height: 100px;
+    top: 60%;
+    right: 15%;
+}
+
+/* ========================================
+   CONTAINER COM CONTEÚDO (CENTRALIZADO)
+   ======================================== */
+.container {
+    /* Flexbox para centralizar o conteúdo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    /* Altura mínima da viewport */
+    min-height: 100vh;
+    
+    /* Posição relativa para layering (ficar acima das decorações) */
+    position: relative;
+    z-index: 10;
+    
+    /* Padding para deixar espaço nas laterais */
+    padding: 20px;
+    
+    /* Texto centralizado */
+    text-align: center;
+}
+
+/* ========================================
+   NÚMERO 404 GRANDE
+   ======================================== */
+.numero-404 {
+    /* Tamanho gigante da fonte */
+    font-size: 150px;
+    
+    /* Espessura máxima */
+    font-weight: 900;
+    
+    /* Cor com transparência para blending */
+    color: rgba(255, 255, 255, 0.95);
+    
+    /* Altura de linha para evitar espaço extra */
+    line-height: 1;
+    
+    /* Efeito de sombra no texto */
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    
+    /* Margem para afastar do título */
+    margin-bottom: 10px;
+}
+
+/* ========================================
+   TÍTULO DA MENSAGEM
+   ======================================== */
+.titulo {
+    /* Tamanho grande mas menor que o 404 */
+    font-size: 48px;
+    
+    /* Espessura */
+    font-weight: 700;
+    
+    /* Cor branca */
+    color: white;
+    
+    /* Sombra para legibilidade */
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    
+    /* Margin para espaçamento */
+    margin-bottom: 20px;
+}
+
+/* ========================================
+   DESCRIÇÃO / PARÁGRAFO
+   ======================================== */
+.descricao {
+    /* Tamanho de fonte maior */
+    font-size: 20px;
+    
+    /* Cor branca com leveza */
+    color: rgba(255, 255, 255, 0.9);
+    
+    /* Largura máxima para não ficar muito largo */
+    max-width: 500px;
+    
+    /* Linha de altura para melhor legibilidade */
+    line-height: 1.6;
+    
+    /* Margin para espaçamento */
+    margin-bottom: 40px;
+    
+    /* Sombra suave */
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   BOTÃO PARA VOLTAR
+   ======================================== */
+.botao-voltar {
+    /* Estilo de botão */
+    display: inline-block;
+    padding: 15px 40px;
+    
+    /* Tamanho e cor da fonte */
+    font-size: 18px;
+    color: white;
+    
+    /* Fundo com cor sólida */
+    background: rgba(255, 255, 255, 0.2);
+    
+    /* Borda arredondada */
+    border-radius: 50px;
+    
+    /* Sem underline padrão de link */
+    text-decoration: none;
+    
+    /* Transição suave para efeitos de hover */
+    transition: all 0.3s ease;
+    
+    /* Borda sutil */
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    
+    /* Sombra */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    
+    /* Efeito de cursor */
+    cursor: pointer;
+}
+
+/* EFEITO HOVER (quando o mouse passa sobre o botão) */
+.botao-voltar:hover {
+    /* Background mais opaco */
+    background: rgba(255, 255, 255, 0.3);
+    
+    /* Borda mais opaca */
+    border-color: rgba(255, 255, 255, 0.8);
+    
+    /* Escala aumentada */
+    transform: scale(1.05);
+    
+    /* Sombra aumentada */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* EFEITO ATIVO (quando clicado) */
+.botao-voltar:active {
+    /* Escala diminuída para feedback visual */
+    transform: scale(0.98);
+}
+
+/* ========================================
+   RESPONSIVIDADE (Para telas menores)
+   ======================================== */
+@media (max-width: 768px) {
+    /* Número 404 menor em mobile */
+    .numero-404 {
+        font-size: 80px;
+    }
+    
+    /* Título menor */
+    .titulo {
+        font-size: 32px;
+    }
+    
+    /* Descrição menor */
+    .descricao {
+        font-size: 16px;
+        max-width: 90%;
+    }
+    
+    /* Botão se adapta */
+    .botao-voltar {
+        font-size: 16px;
+        padding: 12px 30px;
+    }
+}
+
+/* ========================================
+   COMO USAR IMAGENS DE VERDADE
+   
+   Exemplo 1: Background image simples
+   background-image: url('imagens/fundo.png');
+   background-size: cover;              /* Cobre o elemento */
+   background-size: contain;            /* Cabe dentro do elemento */
+   background-size: 200px 150px;        /* Tamanho específico */
+   background-size: 100% 100%;          /* Estica para cobrir */
+   
+   background-position: center;         /* Centralizado */
+   background-position: top left;       /* Topo-esquerdo */
+   background-position: 50% 50%;        /* Exato em % */
+   
+   background-repeat: no-repeat;        /* Não repete */
+   background-repeat: repeat-x;         /* Repete horizontalmente */
+   background-repeat: repeat-y;         /* Repete verticalmente */
+   background-repeat: repeat;           /* Repete em ambas direções */
+   
+   Exemplo 2: Múltiplas imagens de fundo
+   background-image: 
+       url('imagens/img1.png'),
+       url('imagens/img2.png');
+   background-size: 
+       100% 100%,
+       50% 50%;
+   background-position:
+       center,
+       bottom right;
+   ======================================== */
